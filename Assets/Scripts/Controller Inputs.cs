@@ -7,6 +7,8 @@ public class ControllerInputs : MonoBehaviour
 {
     public float speed = 5; 
     public Vector2 movement; 
+
+    public Vector2 value;
     public AudioSource SFX;
 
 
@@ -20,6 +22,10 @@ public class ControllerInputs : MonoBehaviour
     {
         //transform.position += (Vector3)movement * speed * Time.deltaTime; 
         transform.position = movement;
+
+        Vector3 newRotation = transform.eulerAngles;
+        newRotation.z = value.y * speed;
+        transform.eulerAngles = newRotation;
     }
 
     public void OnPoint(InputAction.CallbackContext context)
@@ -32,6 +38,12 @@ public class ControllerInputs : MonoBehaviour
     {
         movement = context.ReadValue<Vector2>(); 
     }
+
+    public void OnRotate(InputAction.CallbackContext context)
+    {
+        value = context.ReadValue<Vector2>();
+    }
+
 
     public void OnAttack(InputAction.CallbackContext context)
     {
