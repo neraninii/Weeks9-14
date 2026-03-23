@@ -1,15 +1,20 @@
 
 
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ControllerInputs : MonoBehaviour
 {
+
+    public Animator animatorController;
     public float speed = 5; 
     public Vector2 movement; 
 
     public Vector2 value;
     public AudioSource SFX;
+
+     Vector2 inputVector;
 
 
     void Start()
@@ -20,12 +25,19 @@ public class ControllerInputs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position += (Vector3)movement * speed * Time.deltaTime; 
-        transform.position = movement;
+        transform.position += (Vector3)movement * speed * Time.deltaTime; 
+        //transform.position = movement;
 
         Vector3 newRotation = transform.eulerAngles;
         newRotation.z = value.y * speed;
         transform.eulerAngles = newRotation;
+
+    }
+
+    public void footsteps()
+    {
+        SFX.Play();
+
     }
 
     public void OnPoint(InputAction.CallbackContext context)
@@ -37,6 +49,9 @@ public class ControllerInputs : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         movement = context.ReadValue<Vector2>(); 
+        animatorController.SetFloat("horizontal", movement.x);
+        animatorController.SetFloat("vertical", movement.y);
+
     }
 
     public void OnRotate(InputAction.CallbackContext context)
