@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Weeks9-14 20.32.47.slnx"
+    "dotnet.defaultSolution": "Weeks9-14.slnx"
 }
