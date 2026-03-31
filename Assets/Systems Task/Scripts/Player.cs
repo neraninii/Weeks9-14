@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public float freezeMax = 20;
     public float freezeValue = 0; 
 
+    public bool checkHeat = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,9 +29,14 @@ public class Player : MonoBehaviour
     {
         transform.position += (Vector3)movement * speed * Time.deltaTime;
 
-        freezeValue += Time.deltaTime;
-
-        freezeBar.value = freezeValue;
+        if (checkHeat == false)
+        {
+            FreezeUp();
+        }
+        else
+        {
+            HeatUp();
+        }
 
         
     }
@@ -39,6 +46,20 @@ public class Player : MonoBehaviour
         movement = context.ReadValue<Vector2>();
         animatorController.SetFloat("horizontal", movement.x);
         animatorController.SetFloat("vertical", movement.y);
+    }
+
+    public void HeatUp()
+    {
+        freezeValue -= Time.deltaTime; 
+        freezeBar.value = freezeValue;
+        checkHeat = true; 
+    }
+
+    public void FreezeUp()
+    {
+        freezeValue += Time.deltaTime;
+        freezeBar.value = freezeValue;
+        checkHeat = false; 
     }
 }
 
