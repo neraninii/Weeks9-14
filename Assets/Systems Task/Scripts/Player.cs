@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public bool checkHeat = false;
 
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
