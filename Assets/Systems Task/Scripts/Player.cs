@@ -1,22 +1,37 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
     public Animator animatorController;
     public float speed = 5; 
     public Vector2 movement; 
 
+    public Slider freezeBar;
+    public SpriteRenderer player;
+
+    public float freezeMax = 20;
+    public float freezeValue = 0; 
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        freezeBar.maxValue = freezeMax;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += (Vector3)movement * speed * Time.deltaTime; 
+        transform.position += (Vector3)movement * speed * Time.deltaTime;
+
+        freezeValue += Time.deltaTime;
+
+        freezeBar.value = freezeValue;
+
+        
     }
 
     public void OnMove(InputAction.CallbackContext context)
