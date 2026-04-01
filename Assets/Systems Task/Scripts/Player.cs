@@ -76,6 +76,24 @@ public class Player : MonoBehaviour
             freezeValue = 21; 
         }
     }
+
+
+    public void DialogueUp()
+    {
+        if (freezeValue > 12)
+        {
+            
+        }
+        else if (freezeValue < 11)
+        {
+            
+        }
+        else
+        {
+            
+        }
+    }
+
 }
 
 

@@ -1,9 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Dialogue : MonoBehaviour
 {
-    public bool nearRevathi = false;
+    public SpriteRenderer NPC; 
+
+    public bool nearNPC = false;
 
     public UnityEvent OnSpeak;
 
@@ -18,6 +21,29 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(NPC.bounds.Contains(transform.position) == true)
+        {
+            if (nearNPC == true)
+            {
+                
+            }
+            else
+            {
+                OnSpeak.Invoke(); 
+                nearNPC = true; 
+            }
+        }
+        else
+        {
+            if (nearNPC == true)
+            {
+                NotSpeak.Invoke();
+                nearNPC = false;
+            }
+            else
+            {
+                
+            }
+        }
     }
 }
