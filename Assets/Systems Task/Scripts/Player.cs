@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         transform.position += (Vector3)movement * speed * Time.deltaTime;
 
         if (checkHeat == false)
@@ -54,6 +56,13 @@ public class Player : MonoBehaviour
         freezeValue -= Time.deltaTime; 
         freezeBar.value = freezeValue;
         checkHeat = true; 
+
+        if (freezeValue < -2)
+        {
+            freezeValue = -1; 
+        }
+
+
     }
 
     public void FreezeUp()
@@ -61,6 +70,11 @@ public class Player : MonoBehaviour
         freezeValue += Time.deltaTime;
         freezeBar.value = freezeValue;
         checkHeat = false; 
+
+        if (freezeValue > 22)
+        {
+            freezeValue = 21; 
+        }
     }
 }
 
