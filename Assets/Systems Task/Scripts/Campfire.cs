@@ -30,9 +30,10 @@ public class Campfire : MonoBehaviour
             {
                 OnHeat.Invoke();
                 nearFire = true;
+                Debug.Log("entered heat");
             }
 
-            Debug.Log("entered heat");
+
         }
         else
         {
@@ -40,12 +41,13 @@ public class Campfire : MonoBehaviour
             {
                 NotHeat.Invoke();
                 nearFire = false;
+                Debug.Log("exited heat");
             }
             else
             {
                 
             }
-            Debug.Log("exited heat");
+        
         }
         
         
