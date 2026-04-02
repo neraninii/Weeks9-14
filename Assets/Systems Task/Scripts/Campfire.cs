@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -32,6 +31,8 @@ public class Campfire : MonoBehaviour
                 OnHeat.Invoke();
                 nearFire = true;
             }
+
+            Debug.Log("entered heat");
         }
         else
         {
@@ -44,6 +45,7 @@ public class Campfire : MonoBehaviour
             {
                 
             }
+            Debug.Log("exited heat");
         }
         
         

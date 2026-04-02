@@ -1,4 +1,5 @@
-using Unity.VisualScripting;
+
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,11 +12,17 @@ public class Dialogue : MonoBehaviour
     public UnityEvent OnSpeak;
 
     public UnityEvent NotSpeak; 
+
+ 
+
+
+   
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
+    
     }
 
     // Update is called once per frame
@@ -46,4 +53,6 @@ public class Dialogue : MonoBehaviour
             }
         }
     }
+
+
 }
