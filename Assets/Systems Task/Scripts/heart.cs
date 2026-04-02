@@ -25,13 +25,21 @@ public class heart : MonoBehaviour
 
     public void GiveHeart()
     {
+        
     
          if (NPC.bounds.Contains(transform.position) == true)
         {
             StopCoroutine(givingCoroutine);
+            StopCoroutine(heartCoroutine);
         }
 
         givingCoroutine = StartCoroutine(HeartSpawn());
+
+    }
+
+    public void Small()
+    {
+        hearts.localScale = Vector2.zero;
     }
 
     IEnumerator HeartSpawn()
@@ -43,7 +51,7 @@ public class heart : MonoBehaviour
         while(t < 1)
         {
             t += Time.deltaTime;
-            hearts.localScale = Vector2.one * t;
+            hearts.localScale = Vector2.one * t * 2;
             yield return null;
 
         }
