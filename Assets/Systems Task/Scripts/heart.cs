@@ -14,6 +14,7 @@ public class heart : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Setting the size to zero so it is unseen at the start
         hearts.localScale = Vector2.zero;
     }
 
@@ -23,6 +24,7 @@ public class heart : MonoBehaviour
         
     }
 
+    //Function to give the npc the heart, which will stop depending on the player's position
     public void GiveHeart()
     {
         
@@ -37,11 +39,13 @@ public class heart : MonoBehaviour
 
     }
 
+    //function to set the size of the heart back when player is out of bounds
     public void Small()
     {
         hearts.localScale = Vector2.zero;
     }
 
+    //coroutine for the heart to grow bigger  
     IEnumerator HeartSpawn()
     {
         Debug.Log("heart start");
