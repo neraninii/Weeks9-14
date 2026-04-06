@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -75,8 +74,20 @@ public class localmultiplayercontroller : MonoBehaviour
 
     public void emitting()
     {
+        float t = 0;
+        trail.emitting = false;
+        t += Time.deltaTime;
+
+        if (t > 5)
+        {
+           trail.emitting = false;
+        }
+        else if (t < 5)
+        {
             speed = 8;
             trail.emitting = true; 
+        }
+
     }
 
 
