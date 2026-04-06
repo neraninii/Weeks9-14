@@ -6,6 +6,9 @@ public class localmultiplayermanager : MonoBehaviour
 {
     public List<Sprite> playerSprites;
     public List<PlayerInput> players;
+
+    public localmultiplayercontroller cont;
+
     public void OnPlayerJoined(PlayerInput player)
     {
         players.Add(player);
@@ -30,5 +33,7 @@ public class localmultiplayermanager : MonoBehaviour
             }
         }
     }
+
+    
    
 }
